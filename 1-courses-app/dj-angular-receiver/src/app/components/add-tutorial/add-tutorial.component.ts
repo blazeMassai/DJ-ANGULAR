@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TutorialService} from "../../services/tutorial.service";
 import {Tutorial} from "../../models/tutorial.model";
+import { faEdit, faTimes, faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-tutorial',
@@ -8,6 +9,8 @@ import {Tutorial} from "../../models/tutorial.model";
   styleUrls: ['./add-tutorial.component.css']
 })
 export class AddTutorialComponent implements OnInit {
+
+  faTrash = faTrash
 
   tutorial: Tutorial = {
     title: '',

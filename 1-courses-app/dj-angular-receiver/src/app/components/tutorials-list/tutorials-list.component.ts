@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Tutorial} from "../../models/tutorial.model";
 import {TutorialService} from "../../services/tutorial.service";
+import { faEdit, faTimes, faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tutorials-list',
@@ -8,6 +9,8 @@ import {TutorialService} from "../../services/tutorial.service";
   styleUrls: ['./tutorials-list.component.css']
 })
 export class TutorialsListComponent implements OnInit {
+
+  faTrash = faTrash
 
   tutorials?: Tutorial[] | any;
   currentTutorial: Tutorial = {};
@@ -17,8 +20,8 @@ export class TutorialsListComponent implements OnInit {
   //pagenation crew
   page = 1;
   count = 0;
-  pageSize = 3;
-  pageSizes = [3, 6, 9];
+  pageSize = 6;
+  pageSizes = [6, 9, 12, 15, 18, 21];
 
   constructor(private tutorialService: TutorialService) { }
 

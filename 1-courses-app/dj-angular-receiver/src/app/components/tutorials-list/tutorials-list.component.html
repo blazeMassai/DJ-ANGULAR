@@ -20,18 +20,7 @@
     </div>
   </div>
 
-<!--  pagination-->
-  <div class="col-md-12">
-    <pagination-controls
-      previousLabel="Prev"
-      nextLabel="Next"
-      [responsive]="true"
-      (pageChange)="handlePageChange($event)"
-    >
 
-    </pagination-controls>
-  </div>
-<!--  end pagination-->
   <div class="col-md-6">
     <h4>Tutorials List</h4>
     <ul class="list-group">
@@ -50,16 +39,31 @@
       </li>
     </ul>
 
+    <!--  pagination-->
+  <div class="col-md-12 my-3">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      [responsive]="true"
+      (pageChange)="handlePageChange($event)"
+    >
+
+    </pagination-controls>
+  </div>
+<!--  end pagination-->
 
     <div class="mt-2 ml-1">
 
-        <button class="btn btn-danger mr-2" (click)="removeAllTutorials()">
+        <button class="mybtn3 mr-2" (click)="removeAllTutorials()">
+            <span ngbTooltip="Delete">
+                <fa-icon [icon]="faTrash" [classes]="['ml-1', 'text-light']"></fa-icon>
+            </span>
           Remove All
         </button>
 
 
           Items per Page:
-          <select (change)="handlePageSizeChange($event)">
+          <select (change)="handlePageSizeChange($event)" id="psize">
             <option *ngFor="let size of pageSizes" [ngValue]="size" >
               {{ size }}
             </option>
@@ -85,7 +89,7 @@
       </div>
 
 
-      <button class="btn btn-warning" routerLink="/tutorials/{{ currentTutorial.id }}">
+      <button class="mybtn2" routerLink="/tutorials/{{ currentTutorial.id }}">
         Edit
       </button>
     </div>
